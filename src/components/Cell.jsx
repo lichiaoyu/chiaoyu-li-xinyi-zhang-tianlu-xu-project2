@@ -49,7 +49,7 @@ export default function Cell({ r, c, cell }) {
       onClick={() => dispatch({ type: "SELECT_CELL", pos: { r, c } })}
       onChange={handleChange}
       inputMode="numeric"
-      maxLength={2}
+      maxLength={1}
       aria-label={`cell-${r}-${c}`}
     />
   );

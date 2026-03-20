@@ -9,7 +9,7 @@ export default function GamePage({ mode }) {
 
   useEffect(() => {
     dispatch({ type: "NEW_GAME", mode });
-  }, [mode]);
+  }, [mode, dispatch]);
 
   const title = mode === "easy" ? "Easy Sudoku (6×6)" : "Normal Sudoku (9×9)";
   const subtitle = mode === "easy"

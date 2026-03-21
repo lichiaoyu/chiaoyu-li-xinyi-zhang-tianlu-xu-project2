@@ -1,25 +1,33 @@
 ## Deliverables
-GitHub repo: https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2  
-Render app: https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/  
-Video walkthrough: <LINK>  
+
+GitHub repo: [https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2](https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2)
+Render app: [https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/](https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/)
+Video walkthrough: [https://youtu.be/nEYTEj1mKXM](https://youtu.be/nEYTEj1mKXM)
 Collaborators: Chiao-Yu Li, Xinyi Zhang, Tianlu Xu
 
 ## Challenges Faced
 
-A main challenge was keeping game state consistent across many interactions (selecting a cell, typing, deleting, validating conflicts, resetting, and detecting a win). I avoided scattered state updates by centralizing all game transitions in a reducer inside `src/state/GameContext.jsx`, so each user action updates state through one predictable path. Another challenge was supporting both 6×6 (easy) and 9×9 (normal) without duplicating code; I parameterized validation and rendering by board size and subgrid dimensions. Finally, I tuned feedback so the UI is helpful but not disruptive: invalid placements are highlighted in red while out-of-range inputs are ignored rather than crashing or corrupting state.
+A key challenge was maintaining consistent game behavior across many interactions, including cell selection, input and deletion, conflict validation, resets, and win detection. We addressed this by centralizing state updates in a reducer within `src/state/GameContext.jsx`, ensuring each action follows a single, traceable update path. Another challenge was supporting both 6×6 (easy) and 9×9 (normal) boards without duplicating logic; we parameterized validation and rendering using the board size and subgrid dimensions. Finally, time management was a meaningful constraint: implementing bonus features such as backtracking-based unique puzzles and the hint system required careful scoping so we could still complete and polish the core requirements within the limited timeline.
 
 ## Additional Features or Design Changes
 
-Given more time, I would add real user accounts and persistent score tracking backed by a database instead of the current static high-scores page. I would also implement “pencil marks” so players can store multiple candidates per cell and later confirm a final value, which is a common Sudoku quality-of-life feature. On the design/accessibility side, I would improve keyboard navigation (arrow keys, tab order, shortcuts) and add more explicit focus styling to support non-mouse play. Lastly, I would add automated tests for the reducer and Sudoku utility functions to prevent regressions as the codebase grows.
+Given more time, we would add a notes (“pencil marks”) feature so users can store multiple candidate values in a cell before committing to a final entry. This matches how many players solve Sudoku and would reduce reliance on repeated trial-and-error edits. We would also add a difficulty selector beyond the two required modes (for example, “medium”) by adjusting clue density while reusing the same validation and rendering pipeline. Finally, we would refine puzzle generation performance (especially for unique-solution generation) so new boards can be produced faster without sacrificing correctness.
 
 ## Assumptions Made
 
-I assumed players should be allowed to enter values freely and receive immediate feedback, rather than hard-blocking all conflicting moves, because it keeps play flexible while still enforcing rules visually. I assumed both game modes should share the same core logic pipeline, with mode-specific differences limited to board size and clue density. For puzzle quality, I assumed unique-solution generation was worth the extra computation time so that each generated puzzle is logically consistent. For persistence, I assumed using browser `localStorage` was acceptable for this assignment and restricted storage access to the context layer.
+We assumed the project’s “easy/normal” modes correspond to our Project 1 “easy/hard” visual layout and styling, so we reused the same overall UI structure while updating routes and naming to match the Project 2 requirements. On the selection page, puzzle titles and authors are intentionally mocked, and each selection functions as a navigation entry rather than a single author board with multiple difficulty variants. In this implementation, the mode is determined by the route (`/games/easy` vs `/games/normal`) and the generated puzzle constraints, rather than representing two difficulty versions of an identical board. We also assumed immediate visual feedback is appropriate for this assignment, so conflicts are highlighted rather than preventing input entirely.
 
 ## Time to Complete
 
-This assignment took about **40 hours** total, including planning, implementation, debugging, styling, and final polish.
+This assignment took approximately **40 hours**, including planning, implementation, debugging, styling, and final review.
 
 ## Bonus Points Accomplished
 
-I implemented **unique-solution puzzle generation** using backtracking: clues are removed only if the puzzle still has exactly one solution, verified by solution counting (`src/sudoku/generator.js`, `src/sudoku/solver.js`). I also added **localStorage persistence**, saving game state after actions, restoring it on load, and clearing it when the game is reset or completed (`src/state/GameContext.jsx`). Finally, I added a **hint system** that finds a cell with exactly one valid candidate and highlights it for the player (`src/sudoku/hint.js`, `src/components/Cell.jsx`).
+**Attempted bonus items:**
+
+* **Local Storage (3 pts)**
+* **Backtracking / Unique Solution (4 pts)**
+* **Hint System (5 pts)**
+* **Early Submission (2 pts):** 
+
+**Details:** We implemented unique-solution puzzle generation by generating a solved grid and removing clues only when solution counting confirms the puzzle still has exactly one solution (`src/sudoku/generator.js`, `src/sudoku/solver.js`). We added localStorage persistence to restore in-progress games after refresh, with storage reads/writes scoped to the Context layer and cleared on reset or completion (`src/state/GameContext.jsx`). We also implemented a hint feature that finds a cell with exactly one valid candidate in the current board state and highlights it for the user (`src/sudoku/hint.js`, `src/components/Cell.jsx`).

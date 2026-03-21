@@ -1,9 +1,9 @@
 ## Deliverables
 
-GitHub repo: [https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2](https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2)
-Render app: [https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/](https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/)
-Video walkthrough: [https://youtu.be/nEYTEj1mKXM](https://youtu.be/nEYTEj1mKXM)
-Collaborators: Chiao-Yu Li, Xinyi Zhang, Tianlu Xu
+GitHub repo: [https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2](https://github.com/lichiaoyu/chiaoyu-li-xinyi-zhang-tianlu-xu-project2)  
+Render app: [https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/](https://chiaoyu-li-xinyi-zhang-tianlu-xu-project2.onrender.com/)  
+Video walkthrough: [https://youtu.be/nEYTEj1mKXM](https://youtu.be/nEYTEj1mKXM)  
+Collaborators: Chiao-Yu Li, Xinyi Zhang, Tianlu Xu  
 
 ## Challenges Faced
 

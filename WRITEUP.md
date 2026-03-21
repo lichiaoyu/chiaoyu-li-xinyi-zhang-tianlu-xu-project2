@@ -28,6 +28,6 @@ This assignment took approximately **40 hours**, including planning, implementat
 * **Local Storage (3 pts)**
 * **Backtracking / Unique Solution (4 pts)**
 * **Hint System (5 pts)**
-* **Early Submission (2 pts):** 
+* **Early Submission (2 pts)** 
 
 **Details:** We implemented unique-solution puzzle generation by generating a solved grid and removing clues only when solution counting confirms the puzzle still has exactly one solution (`src/sudoku/generator.js`, `src/sudoku/solver.js`). We added localStorage persistence to restore in-progress games after refresh, with storage reads/writes scoped to the Context layer and cleared on reset or completion (`src/state/GameContext.jsx`). We also implemented a hint feature that finds a cell with exactly one valid candidate in the current board state and highlights it for the user (`src/sudoku/hint.js`, `src/components/Cell.jsx`).
